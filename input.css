@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+  --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+  --GrayishBlue: hsl(212, 23%, 69%);
+  --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+}
+
+.bg-outside{
+  background-color: var(--LightGrayishBlue);
+}
+
+.bg-tooltip{
+  background-color: var(--VeryDarkGrayishBlue);
+}
+
+.text-primary{
+  color: var(--VeryDarkGrayishBlue);
+}
+
+.p-primary{
+  color: var(--DesaturatedDarkBlue);
+}
+.text-light{
+  color: var(--GrayishBlue);
+}
+
+.letter-spacing-1{
+  letter-spacing: .5em;
+}
+
+.tooltip::before{
+  position: absolute;
+  content: '';
+  z-index: 100;
+  top: 100%;
+  left: 45%;
+  border: 15px solid transparent;
+  border-top-color: var(--VeryDarkGrayishBlue);
+  /* background-color: var(--VeryDarkGrayishBlue); */
+  transform: translateX(-50%) scale(0);
+  transform-origin: top center;
+}
+
+.tooltip{
+  transform: scale(0);
+  transition: all .5s;
+  transform-origin: bottom center;
+}
+
+.tooltip.active, .tooltip.active::before{
+  transform: scale(1);
+}
+
+.rotate{
+  transform: rotateY(180deg);
+}
+
+i.active{
+  background-color: var(--DesaturatedDarkBlue);
+  color: #fff !important;
+}
+
+.right-26{
+  right: 102px;
+}
